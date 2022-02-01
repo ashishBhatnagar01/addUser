@@ -26,7 +26,7 @@ export default function Login(){
                 icon:"success"
             }).then(async()=>{
                 // window.location="/tabs"
-                const response= await axios.post("http://localhost:4000/getJwtToken",data)
+                const response= await axios.post("https://adduserdata.herokuapp.com/getJwtToken",data)
                 if(response.data.token){
                     sessionStorage.setItem("token",response.data.token)
                     // alert(response.data.token)

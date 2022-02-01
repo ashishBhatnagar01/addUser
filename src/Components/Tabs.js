@@ -17,7 +17,7 @@ export default function Tabs() {
   }
   const [data,setData]=useState([])
   useEffect(async()=>{
-    const response=await axios.get("http://localhost:4000/getUsers");
+    const response=await axios.get("https://adduserdata.herokuapp.com/getUsers");
     setData(response.data.users)
   })
     const {handleSubmit,reset,register,formState:{errors}}=useForm()
@@ -32,7 +32,7 @@ export default function Tabs() {
           })
         }
         else{
-          const response = await axios.post("http://localhost:4000/addUser",data)
+          const response = await axios.post("https://adduserdata.herokuapp.com/addUser",data)
           if(response.data.message){
             swal({
               title:`${response.data.message}`,
@@ -53,7 +53,7 @@ export default function Tabs() {
         })
       }
       else{
-        const response = await axios.post("http://localhost:4000/deleteUser",{id:id})
+        const response = await axios.post("https://adduserdata.herokuapp.com/deleteUser",{id:id})
       if(response.data.delete){
         swal({
           title:"User Deleted Successfully",
